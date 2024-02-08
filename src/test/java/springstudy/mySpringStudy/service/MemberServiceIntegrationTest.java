@@ -16,14 +16,22 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @Transactional
 class MemberServiceIntegrationTest {
     @Autowired MemberService memberService;
-    @Autowired
-    MemberRepository memberRepository;
+    @Autowired MemberRepository memberRepository;
+
+/*
+    //메모리에 있는 데이터를 다음 테스트를 위해 지워주기 위함
+    //하지만 @Transactional 가 생겼으므로 필요없어짐
+    @AfterEach
+    public void afterEach() {
+        memberRepository.clearStore();
+    }
 
     @BeforeEach
     public void beforeEach() {
         memberRepository = new MemoryMemberRepository();
         memberService = new MemberService(memberRepository);
     }
+*/
 
     @Test
     void 회원가입() {
