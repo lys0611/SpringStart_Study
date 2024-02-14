@@ -19,8 +19,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 //: 테스트 시작 전에 트랜잭션을 시작하고, 테스트 완료 후 항상 롤백한다
 //=> DB에 데이터가 남지 않으므로 다음 테스트에 영향을 주지 않는다.
 class MemberServiceIntegrationTest {
-    @Autowired MemberService memberService;
-    @Autowired MemberRepository memberRepository;
+    @Autowired
+    MemberService memberService;
+    @Autowired
+    MemberRepository memberRepository;
 
     //메모리 DB에 있던 데이터를
     // 다음 테스트에 영향을 주는 것을 막기 위해 지워주는 역할을 했지만
@@ -41,7 +43,7 @@ class MemberServiceIntegrationTest {
     void 회원가입() {
         //given
         Member member = new Member();
-        member.setName("hello");
+        member.setName("spring");
 
         //when
         Long saveId = memberService.join(member);

@@ -2,6 +2,7 @@ package springstudy.mySpringStudy.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import springstudy.mySpringStudy.domain.Member;
 import springstudy.mySpringStudy.repository.MemberRepository;
 import springstudy.mySpringStudy.repository.MemoryMemberRepository;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 //@Service
+@Transactional  //JPA 를 사용하려면 필수!!(데이터 저장, 변경 시 필수)
 public class MemberService {
     private final MemberRepository memberRepository;
 
